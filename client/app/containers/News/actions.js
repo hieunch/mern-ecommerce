@@ -147,9 +147,7 @@ export const addNews = () => {
         dispatch(goBack());
       }
 
-      console.log(response.data.error);
     } catch (error) {
-      console.log(error);
       handleError(error, dispatch);
     } finally {
       dispatch({ type: SET_NEWS_LOADING, payload: false });
@@ -161,7 +159,6 @@ export const addNews = () => {
 export const updateNews = () => {
   return async (dispatch, getState) => {
     try {
-      console.log('updateNews');
       dispatch({ type: SET_NEWS_LOADING, payload: true });
       const rules = {
         title: 'required',
@@ -198,7 +195,6 @@ export const updateNews = () => {
         //dispatch(goBack());
       }
     } catch (error) {
-      console.log(error);
       handleError(error, dispatch);
     } finally {
       dispatch({ type: SET_NEWS_LOADING, payload: false });
@@ -240,7 +236,6 @@ export const resetNews = () => {
 
 // fetch store products by filterNews api
 export const filterNews = (n, v) => {
-  console.log("filterNews");
   return async (dispatch, getState) => {
     try {
       // const s = getState().news.pageInfo;
@@ -262,7 +257,6 @@ export const filterNews = (n, v) => {
         payload: response.data.listNews
       });
     } catch (error) {
-      console.log(error);
       handleError(error, dispatch);
     } finally {
       dispatch({ type: SET_NEWS_LOADING, payload: false });
@@ -273,7 +267,6 @@ export const filterNews = (n, v) => {
 // fetch store product api
 export const fetchNewsListBySlug = slug => {
   return async (dispatch, getState) => {
-    console.log("fetchNewsListBySlug");
     dispatch({ type: SET_NEWS_LOADING, payload: true });
 
     try {

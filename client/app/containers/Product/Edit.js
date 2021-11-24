@@ -45,7 +45,6 @@ class Edit extends React.PureComponent {
       activateProduct
     } = this.props;
 
-    console.log(product.name);
 
     return (
       isLoading ? (

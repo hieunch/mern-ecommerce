@@ -9,10 +9,6 @@ const ShopingNavBar = props => {
     tikiUrl
   } = props;
 
-  console.log(shopeeUrl);
-  console.log(lazadaUrl);
-  console.log(tikiUrl);
-
   return (
     <ul className='platform-navigation'>
       <li>

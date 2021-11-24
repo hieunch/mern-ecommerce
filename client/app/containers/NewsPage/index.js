@@ -19,7 +19,6 @@
  
  class NewsPage extends React.PureComponent {
    componentDidMount() {
-    console.log("componentDidMount");
      const slug = this.props.match.params.slug;
      this.props.fetchNewsListBySlug(slug);
     //  document.body.classList.add('product-page');

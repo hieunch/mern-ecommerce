@@ -91,8 +91,6 @@ const EditProduct = props => {
                 multiple
                 accept='image/*'
                 onChange={(e) => {
-                  console.log('onChange');
-                  console.log(e);
                   addProductImage('uploadedImages', e.target.files);
                 }}
               />

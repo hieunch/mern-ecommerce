@@ -12,13 +12,8 @@ import Slider from "react-slick";
 
 import actions from '../../actions';
 
-import Input from '../../components/Common/Input';
-import Button from '../../components/Common/Button';
 import LoadingIndicator from '../../components/Common/LoadingIndicator';
 import NotFound from '../../components/Common/NotFound';
-import { BagIcon } from '../../components/Common/Icon';
-import ProductReviews from '../../components/Store/ProductReviews';
-import SocialShare from '../../components/Store/SocialShare';
 import ShopingNavBar from '../../components/Store/ShopingNavBar';
 // import "slick-carousel/slick/slick.css"; 
 // import "slick-carousel/slick/slick-theme.css";
@@ -75,7 +70,6 @@ class ProductPage extends React.PureComponent {
       slidesToScroll: 1
     };
 
-    console.log(product.tikiUrl);
 
     const isUrlNonempty = product.shopeeUrl || product.lazadaUrl || product.tikiUrl;
 
@@ -114,7 +108,6 @@ class ProductPage extends React.PureComponent {
                   <img className='px-1' src='/images/placeholder-image.png'/> */}
                   {product.imageUrls.map((url, num) =>
                     <img className='px-1' key={num} src={url} onClick={(e) => {
-                      console.log(e.target);
                       changeShowUrl(e.target.src)
                     }}/>
                   )}

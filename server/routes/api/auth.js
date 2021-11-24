@@ -18,7 +18,6 @@ const { secret, tokenLife } = keys.jwt;
 router.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
-  console.log("LOGIN");
 
   if (!email) {
     return res.status(400).json({ error: 'You must enter an email address.' });

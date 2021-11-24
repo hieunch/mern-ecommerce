@@ -47,7 +47,6 @@ export const productChange = (name, value) => {
 };
 
 export const changeShowUrl = (imageUrl) => {
-  console.log('changeShowUrl');
   return {
     type: CHANGE_SHOW_URL,
     payload: {imageUrl}
@@ -269,7 +268,6 @@ export const addProduct = () => {
         lazadaUrl: product.lazadaUrl,
         tikiUrl: product.tikiUrl,
       };
-      console.log(product.uploadedImages);
 
       const { isValid, errors } = allFieldsValidation(newProduct, rules, {
         'required.id': 'Product id is required.',
@@ -280,7 +278,6 @@ export const addProduct = () => {
         'required.price': 'Price is required.',
         'required.uploadedImages': 'Please upload files with jpg, jpeg, png format.'
       });
-      console.log(errors);
 
       if (!isValid) {
         return dispatch({ type: SET_PRODUCT_FORM_ERRORS, payload: errors });
@@ -325,7 +322,6 @@ export const addProduct = () => {
         dispatch(goBack());
       }
 
-      console.log(response.data.error);
     } catch (error) {
       handleError(error, dispatch);
     } finally {

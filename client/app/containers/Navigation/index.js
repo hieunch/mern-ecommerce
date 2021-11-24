@@ -28,11 +28,6 @@ import {
 
 import actions from '../../actions';
 
-import Button from '../../components/Common/Button';
-import { BarsIcon } from '../../components/Common/Icon';
-import MiniBrand from '../../components/Store//MiniBrand';
-import HoverDropdown from './HoverDropdown';
-
 class Navigation extends React.PureComponent {
   componentDidMount() {
     // this.props.fetchStoreBrands();
@@ -297,7 +292,7 @@ class Navigation extends React.PureComponent {
                         >
                           Dashboard
                         </DropdownItem>
-                        <DropdownItem onClick={signOut}>Sign Out</DropdownItem>
+                        <DropdownItem onClick={signOut}>Đăng xuất</DropdownItem>
                       </DropdownMenu>
                     </UncontrolledDropdown>
                   ) : (

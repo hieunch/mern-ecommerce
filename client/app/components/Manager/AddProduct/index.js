@@ -37,8 +37,6 @@ const AddProduct = props => {
     addProduct();
   };
 
-  console.log(productFormData.uploadedImages);
-
   return (
     <div className='add-product'>
       {isLoading ? (
@@ -99,8 +97,6 @@ const AddProduct = props => {
                 multiple
                 accept='image/*'
                 onChange={(e) => {
-                  console.log('onChange');
-                  console.log(e);
                   addProductImage('uploadedImages', e.target.files);
                 }}
               />
