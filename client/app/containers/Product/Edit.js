@@ -45,7 +45,7 @@ class Edit extends React.PureComponent {
       activateProduct
     } = this.props;
 
-
+    
     return (
       isLoading ? (
         <LoadingIndicator inline />

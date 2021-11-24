@@ -336,36 +336,23 @@ export const updateProduct = () => {
     try {
       dispatch({ type: SET_PRODUCTS_LOADING, payload: true });
       const rules = {
+        id: 'required',
         name: 'required',
-        description: 'required|max:200',
-        quantity: 'required|numeric',
+        description: 'required',
         price: 'required|numeric',
-        taxable: 'required',
-        brand: 'required'
       };
 
       const product = getState().product.product;
 
-      const brand = unformatSelectOptions([product.brand]);
-
-      const newProduct = {
-        name: product.name,
-        description: product.description,
-        quantity: product.quantity,
-        price: product.price,
-        taxable: product.taxable,
-        brand: brand != 0 ? brand : null
-      };
+      const newProduct = {...product};
 
       const { isValid, errors } = allFieldsValidation(newProduct, rules, {
+        'required.id': 'Product id is required.',
         'required.name': 'Name is required.',
         'required.description': 'Description is required.',
-        'max.description':
-          'Description may not be greater than 200 characters.',
-        'required.quantity': 'Quantity is required.',
+        // 'max.description':
+        //   'Description may not be greater than 200 characters.',
         'required.price': 'Price is required.',
-        'required.taxable': 'Taxable is required.',
-        'required.brand': 'Brand is required.'
       });
 
       if (!isValid) {
