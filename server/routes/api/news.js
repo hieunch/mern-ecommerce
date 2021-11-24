@@ -270,8 +270,7 @@ router.put(
       await News.findOneAndUpdate(query, update, {
         new: true
       });
-
-      console.log('successful');
+      
       res.status(200).json({
         success: true,
         message: 'News has been updated successfully!'

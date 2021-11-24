@@ -13,7 +13,7 @@ const BASE_API_URL = process.env.BASE_API_URL;
 module.exports = {
   mode: 'production',
   output: {
-    path: path.join(CURRENT_WORKING_DIR, '/dist'),
+    path: path.join(CURRENT_WORKING_DIR, '/build'),
     filename: 'js/[name].[hash].js',
     publicPath: '/'
   },
