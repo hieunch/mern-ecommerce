@@ -7,6 +7,7 @@
 import { push } from 'connected-react-router';
 import { success } from 'react-notification-system-redux';
 import axios from 'axios';
+import serverUrl from '../../utils/constant';
 
 import {
   FORGOT_PASSWORD_CHANGE,

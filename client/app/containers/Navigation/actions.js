@@ -5,6 +5,7 @@
  */
 
 import axios from 'axios';
+import serverUrl from '../../utils/constant';
 import handleError from '../../utils/error';
 import {
   SHOW_INTRODUCTION,

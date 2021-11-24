@@ -6,6 +6,7 @@
 
 import { success } from 'react-notification-system-redux';
 import axios from 'axios';
+import serverUrl from '../../utils/constant';
 
 import {
   ACCOUNT_CHANGE,
@@ -42,7 +43,7 @@ export const fetchProfile = () => {
   return async (dispatch, getState) => {
     try {
       dispatch(setProfileLoading(true));
-      const response = await axios.get(`/api/user`);
+      const response = await axios.get(serverUrl + `/api/user`);
 
       dispatch({ type: FETCH_PROFILE, payload: response.data.user });
     } catch (error) {

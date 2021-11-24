@@ -57,8 +57,7 @@ const mapStateToProps = state => {
     isLoading: state.product.isLoading,
     user: state.account.user,
     productFormData: state.product.productFormData,
-    formErrors: state.product.formErrors,
-    brands: state.brand.brandsSelect
+    formErrors: state.product.formErrors
   };
 };
 

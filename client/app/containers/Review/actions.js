@@ -6,6 +6,7 @@
 
 import { success } from 'react-notification-system-redux';
 import axios from 'axios';
+import serverUrl from '../../utils/constant';
 
 import {
   FETCH_REVIEWS,
@@ -35,7 +36,7 @@ export const fetchReviews = () => {
     try {
       dispatch({ type: SET_REVIEWS_LOADING, payload: true });
 
-      const response = await axios.get(`/api/review`);
+      const response = await axios.get(serverUrl + `/api/review`);
 
       dispatch({ type: FETCH_REVIEWS, payload: response.data.reviews });
     } catch (error) {
@@ -99,7 +100,7 @@ export const deleteReview = id => {
 export const fetchProductReviews = slug => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.get(`/api/review/${slug}`);
+      const response = await axios.get(serverUrl + `/api/review/${slug}`);
 
       const {
         ratingSummary,
@@ -159,7 +160,7 @@ export const addProductReview = () => {
         return dispatch({ type: SET_REVIEW_FORM_ERRORS, payload: errors });
       }
 
-      const response = await axios.post(`/api/review/add`, newReview);
+      const response = await axios.post(serverUrl + `/api/review/add`, newReview);
 
       const successfulOptions = {
         title: `${response.data.message}`,

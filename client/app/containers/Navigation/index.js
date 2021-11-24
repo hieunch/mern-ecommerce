@@ -196,9 +196,10 @@ class Navigation extends React.PureComponent {
                   inNavbar
                   onMouseEnter={() => this.showIntroduction()}
                   onMouseLeave={() => this.hideIntroduction()}
+                  toggle={() => null}
                   isOpen={isIntroductionOpen}
                 >
-                      <DropdownToggle nav>
+                      <DropdownToggle onClick={() => null} nav>
                         Giới thiệu
                         <span className='fa fa-chevron-down dropdown-caret'></span>
                       </DropdownToggle>

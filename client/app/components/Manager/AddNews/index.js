@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import axios from 'axios';
+import serverUrl from '../../../utils/constant';
 
 import Input from '../../Common/Input';
 import Button from '../../Common/Button';
@@ -11,13 +12,8 @@ function AddNews(props){
 
     const {
         isLoading,
-        user,
-        newsFormData,
-        formErrors,
         changeNews,
-        addProductImage,
         addNews,
-        brands
     } = props;
     
     const quillRef = useRef(null);
@@ -28,7 +24,7 @@ function AddNews(props){
     };
 
     const apiPostNewsImage = async (formData) => {
-        const response = await axios.post(`/api/media`, formData, {
+        const response = await axios.post(serverUrl + `/api/media`, formData, {
             headers: { 'Content-Type': 'multipart/form-data' }
         });
     

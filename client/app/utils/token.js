@@ -5,6 +5,7 @@
  */
 
 import axios from 'axios';
+import './constant';
 
 const setToken = token => {
   if (token) {

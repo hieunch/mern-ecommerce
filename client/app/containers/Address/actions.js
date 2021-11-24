@@ -7,6 +7,7 @@
 import { goBack } from 'connected-react-router';
 import { success } from 'react-notification-system-redux';
 import axios from 'axios';
+import serverUrl from '../../utils/constant';
 
 import {
   FETCH_ADDRESS,
@@ -63,7 +64,7 @@ export const fetchAddresses = () => {
   return async (dispatch, getState) => {
     try {
       dispatch(setAddressLoading(true));
-      const response = await axios.get(`/api/address`);
+      const response = await axios.get(serverUrl + `/api/address`);
       dispatch({ type: FETCH_ADDRESSES, payload: response.data.addresses });
     } catch (error) {
       handleError(error, dispatch);
@@ -77,7 +78,7 @@ export const fetchAddresses = () => {
 export const fetchAddress = addressId => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.get(`/api/address/${addressId}`);
+      const response = await axios.get(serverUrl + `/api/address/${addressId}`);
 
       dispatch({
         type: FETCH_ADDRESS,
@@ -120,7 +121,7 @@ export const addAddress = () => {
         ...newAddress
       };
 
-      const response = await axios.post(`/api/address/add`, address);
+      const response = await axios.post(serverUrl + `/api/address/add`, address);
 
       const successfulOptions = {
         title: `${response.data.message}`,

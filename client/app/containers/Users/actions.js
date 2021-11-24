@@ -5,6 +5,7 @@
  */
 
 import axios from 'axios';
+import serverUrl from '../../utils/constant';
 
 import { FETCH_USERS } from './constants';
 
@@ -13,7 +14,7 @@ import handleError from '../../utils/error';
 export const fetchUsers = filter => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.get(`/api/user/search`, {
+      const response = await axios.get(serverUrl + `/api/user/search`, {
         params: {
           search: filter.value
         }

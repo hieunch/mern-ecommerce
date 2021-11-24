@@ -7,6 +7,7 @@
 import { push } from 'connected-react-router';
 import { success } from 'react-notification-system-redux';
 import axios from 'axios';
+import serverUrl from '../../utils/constant';
 
 import {
   RESET_PASSWORD_CHANGE,
@@ -54,7 +55,7 @@ export const resetPassowrd = token => {
         });
       }
 
-      const response = await axios.post(`/api/auth/reset/${token}`, user);
+      const response = await axios.post(serverUrl + `/api/auth/reset/${token}`, user);
       const successfulOptions = {
         title: `${response.data.message}`,
         position: 'tr',
@@ -101,7 +102,7 @@ export const resetAccountPassword = () => {
         });
       }
 
-      const response = await axios.post(`/api/auth/reset`, user);
+      const response = await axios.post(serverUrl + `/api/auth/reset`, user);
       const successfulOptions = {
         title: `${response.data.message}`,
         position: 'tr',

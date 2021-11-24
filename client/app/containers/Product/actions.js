@@ -7,6 +7,7 @@
 import { goBack } from 'connected-react-router';
 import { success } from 'react-notification-system-redux';
 import axios from 'axios';
+import serverUrl from '../../utils/constant';
 
 import {
   FETCH_PRODUCTS,
@@ -92,7 +93,7 @@ export const fetchProducts = () => {
   return async (dispatch, getState) => {
     try {
       dispatch({ type: SET_PRODUCTS_LOADING, payload: true });
-      const response = await axios.get(`/api/product`);
+      const response = await axios.get(serverUrl + `/api/product`);
 
       dispatch({
         type: FETCH_PRODUCTS,
@@ -123,7 +124,7 @@ export const filterProducts = (n, v) => {
 
       payload = { ...payload, sortOrder };
 
-      const response = await axios.post(`/api/product/list`, payload);
+      const response = await axios.post(serverUrl + `/api/product/list`, payload);
 
       dispatch({
         type: SET_ADVANCED_FILTERS,
@@ -150,7 +151,7 @@ export const fetchProduct = id => {
   return async (dispatch, getState) => {
     try {
       dispatch({ type: SET_PRODUCTS_LOADING, payload: true });
-      const response = await axios.get(`/api/product/${id}`);
+      const response = await axios.get(serverUrl + `/api/product/${id}`);
 
       const inventory = response.data.product.quantity;
       if (response.data.product.brand) {
@@ -179,7 +180,7 @@ export const fetchStoreProduct = slug => {
     dispatch({ type: SET_PRODUCTS_LOADING, payload: true });
 
     try {
-      const response = await axios.get(`/api/product/item/${slug}`);
+      const response = await axios.get(serverUrl + `/api/product/item/${slug}`);
 
       const inventory = response.data.product.quantity;
       const product = { ...response.data.product, inventory };
@@ -201,7 +202,7 @@ export const fetchBrandProducts = slug => {
     dispatch({ type: SET_PRODUCTS_LOADING, payload: true });
 
     try {
-      const response = await axios.get(`/api/product/list/brand/${slug}`);
+      const response = await axios.get(serverUrl + `/api/product/list/brand/${slug}`);
 
       const s = getState().product.advancedFilters;
       dispatch({
@@ -227,7 +228,7 @@ export const fetchBrandProducts = slug => {
 export const fetchProductsSelect = () => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.get(`/api/product/list/select`);
+      const response = await axios.get(serverUrl + `/api/product/list/select`);
 
       const formattedProducts = formatSelectOptions(response.data.products);
 
@@ -256,9 +257,6 @@ export const addProduct = () => {
 
       const product = getState().product.productFormData;
       const user = getState().account.user;
-      // const brands = getState().brand.brandsSelect;
-
-      // const brand = unformatSelectOptions([product.brand]);
 
       const newProduct = {
         id: product.id,
@@ -303,11 +301,11 @@ export const addProduct = () => {
         }
       }
 
-      const response = await axios.post(`/api/product/add`, formData, {
+      const response = await axios.post(serverUrl + `/api/product/add`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       
-    // const response = await axios.post(`/api/product/add`, fd, {
+    // const response = await axios.post(serverUrl + `/api/product/add`, fd, {
     //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     //   });
 

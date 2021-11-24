@@ -7,6 +7,7 @@
 import { goBack } from 'connected-react-router';
 import { success } from 'react-notification-system-redux';
 import axios from 'axios';
+import serverUrl from '../../utils/constant';
 
 import {
   FETCH_NEWS_LIST,
@@ -56,7 +57,7 @@ export const fetchNewsList = () => {
   return async (dispatch, getState) => {
     try {
       dispatch({ type: SET_NEWS_LOADING, payload: true });
-      const response = await axios.get(`/api/news`);
+      const response = await axios.get(serverUrl + `/api/news`);
 
       dispatch({
         type: FETCH_NEWS_LIST,
@@ -75,7 +76,7 @@ export const fetchNews = id => {
   return async (dispatch, getState) => {
     try {
       dispatch({ type: SET_NEWS_LOADING, payload: true });
-      const response = await axios.get(`/api/news/${id}`);
+      const response = await axios.get(serverUrl + `/api/news/${id}`);
 
       const news = response.data.news;
 
@@ -122,11 +123,11 @@ export const addNews = () => {
       let newsData = {...news, id: news_id};
       formData.append("id", news_id);
 
-      const response = await axios.post(`/api/news/add`, newsData);//formData, {
+      const response = await axios.post(serverUrl + `/api/news/add`, newsData);//formData, {
         // headers: { 'Content-Type': 'multipart/form-data' }
       // });
       
-    // const response = await axios.post(`/api/news/add`, fd, {
+    // const response = await axios.post(serverUrl + `/api/news/add`, fd, {
     //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     //   });
 
@@ -246,7 +247,7 @@ export const filterNews = (n, v) => {
 
       dispatch({ type: SET_NEWS_LOADING, payload: true });
 
-      const response = await axios.post(`/api/news/list`, {pageNumber: v});
+      const response = await axios.post(serverUrl + `/api/news/list`, {pageNumber: v});
 
       dispatch({
         type: SET_PAGE_INFO,
@@ -276,7 +277,7 @@ export const fetchNewsListBySlug = slug => {
     dispatch({ type: SET_NEWS_LOADING, payload: true });
 
     try {
-      const response = await axios.get(`/api/news/item/${slug}`);
+      const response = await axios.get(serverUrl + `/api/news/item/${slug}`);
 
       dispatch({
         type: FETCH_NEWS_LIST_BY_SLUG,
