@@ -334,6 +334,7 @@ export const addProduct = () => {
 export const updateProduct = () => {
   return async (dispatch, getState) => {
     try {
+      dispatch({ type: SET_PRODUCTS_LOADING, payload: true });
       const rules = {
         name: 'required',
         description: 'required|max:200',
@@ -391,6 +392,8 @@ export const updateProduct = () => {
       }
     } catch (error) {
       handleError(error, dispatch);
+    } finally {
+      dispatch({ type: SET_PRODUCTS_LOADING, payload: false });
     }
   };
 };
