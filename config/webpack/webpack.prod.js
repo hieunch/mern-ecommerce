@@ -15,7 +15,7 @@ module.exports = {
   output: {
     path: path.join(CURRENT_WORKING_DIR, '/build'),
     filename: 'js/[name].[hash].js',
-    publicPath: '/'
+    publicPath: './'
   },
   module: {
     rules: [
