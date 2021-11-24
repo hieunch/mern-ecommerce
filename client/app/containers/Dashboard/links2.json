@@ -1,8 +1,0 @@
-{
-  "ROLE_ADMIN": [
-    { "to": "", "name": "Thông tin tài khoản" },
-    { "to": "/security", "name": "Đổi mật khẩu" },
-    { "to": "/product", "name": "Quản lý sản phẩm" },
-    { "to": "/news", "name": "Quản lý tin tức" }
-  ]
-}
