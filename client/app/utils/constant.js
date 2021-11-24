@@ -1,3 +1,3 @@
-const serverUrl = 'http://mdpaper.herokuapp.com';
+const serverUrl = '';//'http://mdpaper.herokuapp.com';
 
 export default serverUrl;
