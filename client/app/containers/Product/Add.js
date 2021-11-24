@@ -15,7 +15,7 @@ import SubPage from '../../components/Manager/SubPage';
 
 class Add extends React.PureComponent {
   componentDidMount() {
-    this.props.fetchBrandsSelect();
+    // this.props.fetchBrandsSelect();
   }
 
   render() {
