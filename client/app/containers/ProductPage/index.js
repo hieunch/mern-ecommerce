@@ -156,7 +156,7 @@ class ProductPage extends React.PureComponent {
                           productShopChange(name, value);
                         }}
                       />
-                    </div> */}git 
+                    </div> */}
                     <hr />
                     
                     {/* <div className='my-4 item-share'> */}
