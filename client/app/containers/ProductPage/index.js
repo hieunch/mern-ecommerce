@@ -62,11 +62,14 @@ class ProductPage extends React.PureComponent {
       reviewFormErrors
     } = this.props;
 
+
+    let numImages = 0;
+    if (Object.keys(product).length > 0) numImages = product.imageUrls.length;
     const settings = {
       arrow: true,
       focusOnSelect: true,
       speed: 500,
-      slidesToShow: 3,
+      slidesToShow: Math.min(3,numImages),
       slidesToScroll: 1
     };
 
@@ -101,17 +104,17 @@ class ProductPage extends React.PureComponent {
                   )} */}
                 </div>
                 <div className="pt-3 prd-detail-slide1 slick-initialized slick-slider">
-                  <Slider {...settings}>
+                  {numImages <= 1 ? null : <Slider {...settings}>
                   {/* <img className='px-1' src='/images/placeholder-image.png'/>
                   <img className='px-1' src='/images/placeholder-image.png'/>
                   <img className='px-1' src='/images/placeholder-image.png'/>
                   <img className='px-1' src='/images/placeholder-image.png'/> */}
                   {product.imageUrls.map((url, num) =>
-                    <img className='px-1' key={num} src={url} onClick={(e) => {
+                    <img className='px-1 item-image' key={num} src={url} onClick={(e) => {
                       changeShowUrl(e.target.src)
                     }}/>
                   )}
-                  </Slider>
+                  </Slider>}
                 </div>
               </Col>
               <Col xs='12' md='7' lg='7' className='mb-3 px-3 px-md-2'>
