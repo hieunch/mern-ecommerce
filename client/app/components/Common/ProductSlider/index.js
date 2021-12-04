@@ -9,7 +9,7 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-const CarouselSlider = props => {
+const ProductSlider = props => {
   const {
     swipeable,
     draggable,
@@ -38,14 +38,15 @@ const CarouselSlider = props => {
       transitionDuration={500}
       containerClass='carousel-container'
       dotListClass='carousel-dot-list-style'
-      itemClass='carousel-slider-item'
+      // itemClass='carousel-slider-item'
+      itemClass="carousel-item-padding-40-px"
     >
       {children}
     </Carousel>
   );
 };
 
-CarouselSlider.defaultProps = {
+ProductSlider.defaultProps = {
   swipeable: false,
   draggable: false,
   showDots: false,
@@ -56,4 +57,4 @@ CarouselSlider.defaultProps = {
   autoPlaySpeed: 5000
 };
 
-export default CarouselSlider;
+export default ProductSlider;

@@ -29,7 +29,7 @@ import newsReducer from './containers/News/reducer';
 import navigationMenuReducer from './containers/NavigationMenu/reducer';
 import shopReducer from './containers/Shop/reducer';
 // import merchantReducer from './containers/Merchant/reducer';
-// import contactReducer from './containers/Contact/reducer';
+import contactReducer from './containers/Contact/reducer';
 // import reviewReducer from './containers/Review/reducer';
 // import wishListReducer from './containers/WishList/reducer';
 
@@ -57,7 +57,7 @@ const createReducer = history =>
     menu: navigationMenuReducer,
     shop: shopReducer,
     // merchant: merchantReducer,
-    // contact: contactReducer,
+    contact: contactReducer,
     // review: reviewReducer,
     // wishlist: wishListReducer
   });

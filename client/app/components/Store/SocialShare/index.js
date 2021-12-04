@@ -25,11 +25,11 @@ const SocialShare = props => {
           <i className='fa fa-facebook'></i>
         </FacebookShareButton>
       </li>
-      <li>
+      {/* <li>
         <TwitterShareButton url={`${shareMsg}`} className='share-btn twitter'>
           <i className='fa fa-twitter'></i>
         </TwitterShareButton>
-      </li>
+      </li> */}
       <li>
         <EmailShareButton url={`${shareMsg}`} className='share-btn envelope'>
           <i className='fa fa-envelope-o'></i>

@@ -14,9 +14,9 @@ import SocialShare from '../../Store/SocialShare'
 
 const Footer = () => {
   const infoLinks = [
-    { id: 0, name: 'Contact Us', to: '/contact' },
-    { id: 1, name: 'Sell With Us', to: '/sell' },
-    { id: 2, name: 'Shipping', to: '/shipping' }
+    { id: 0, name: 'Sản phẩm', to: '/shop' },
+    { id: 1, name: 'Tin tức', to: '/news' },
+    { id: 2, name: 'Liên hệ', to: '/contact' }
   ];
 
   const footerBusinessLinks = (
@@ -42,24 +42,7 @@ const Footer = () => {
     <footer className='footer'>
       <Container>
         <div className='footer-content'>
-          <div className='footer-block'>
-            <div className='block-title'>
-              <h2>Liên hệ</h2>
-            </div>
-            <div className='block-content'>
-							<ul>
-								<li><span className="font-bold">Địa chỉ : </span> <i>Số 194 đường Kiều Hạ, Phường Đông Hải 2, Quận Hải An, Thành phố Hải Phòng.</i></li>
-								<li><span className="font-bold">Điện Thoại : </span> <i>+84 (0) 225 397 9952</i></li>
-								<li><span className="font-bold">Fax : </span> <i>+84 (0) 225 397 9951</i></li>
-								<li><span className="font-bold">Email : </span>hhppaper@gmail.com</li>
-								<li><span className="font-bold">Hotline Hỗ Trợ Khách Hàng : </span>+84 (0) 983 239 288</li>
-							</ul>
-						</div>
-            {/* <div className='block-content'>
-              <ul>{footerLinks}</ul>
-            </div> */}
-          </div>
-          <div className='footer-block'>
+          <div className='footer-block col col-lg-2'>
             <div className='block-title'>
               <h2>Links</h2>
             </div>
@@ -67,9 +50,25 @@ const Footer = () => {
               <ul>{footerLinks}</ul>
             </div>
           </div>
-          <div className='footer-block'>
+          <div className='footer-block col col-lg-6'>
             <div className='block-title'>
-              <h2>Newsletter</h2>
+              <h2>Thông tin liên hệ</h2>
+            </div>
+            <div className='block-content'>
+							<ul>
+								<li><span className="font-bold">Địa chỉ : </span> <i>Số 194 đường Kiều Hạ, Phường Đông Hải 2, Quận Hải An, Thành phố Hải Phòng.</i></li>
+								<li><span className="font-bold">Điện Thoại : </span> <i>+84 (0) 225 397 9952</i></li>
+								<li><span className="font-bold">Email : </span>hhppaper@gmail.com</li>
+							</ul>
+						</div>
+            {/* <div className='block-content'>
+              <ul>{footerLinks}</ul>
+            </div> */}
+          </div>
+          
+          <div className='footer-block col col-lg-4'>
+            <div className='block-title'>
+              <h2>Nhận tin khuyến mãi</h2>
               <Newsletter />
             </div>
           </div>

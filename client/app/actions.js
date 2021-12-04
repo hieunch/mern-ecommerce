@@ -26,7 +26,7 @@ import * as news from './containers/News/actions';
 import * as menu from './containers/NavigationMenu/actions';
 import * as shop from './containers/Shop/actions';
 // import * as merchant from './containers/Merchant/actions';
-// import * as contact from './containers/Contact/actions';
+import * as contact from './containers/Contact/actions';
 // import * as review from './containers/Review/actions';
 // import * as wishlist from './containers/WishList/actions';
 
@@ -53,7 +53,7 @@ export default function mapDispatchToProps(dispatch) {
       ...menu,
       ...shop,
       // ...merchant,
-      // ...contact,
+      ...contact,
       // ...review,
       // ...wishlist
     },

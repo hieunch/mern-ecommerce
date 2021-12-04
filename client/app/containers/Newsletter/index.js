@@ -33,7 +33,7 @@ class Newsletter extends React.PureComponent {
 
     return (
       <div className='newsletter-form'>
-        <p>Nhận tin khuyến mãi</p>
+        {/* <p>Nhận tin khuyến mãi</p> */}
         <form onSubmit={handleSubmit}>
           <div className='subscribe'>
             <Input
