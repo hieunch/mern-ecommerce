@@ -35,7 +35,7 @@ const ProductSlider = props => {
       ssr={ssr}
       responsive={responsive}
       customTransition='all 1s'
-      transitionDuration={500}
+      transitionDuration={1000}
       containerClass='carousel-container'
       dotListClass='carousel-dot-list-style'
       // itemClass='carousel-slider-item'
