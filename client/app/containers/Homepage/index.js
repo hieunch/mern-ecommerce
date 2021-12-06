@@ -25,7 +25,7 @@ class Homepage extends React.PureComponent {
     document.title = "Trang Chủ";
     const slug = this.props.match.params.slug;
     this.props.filterProducts(slug);
-    this.props.fetchRecentNews();
+    // this.props.fetchRecentNews();
   }
 
   render() {
