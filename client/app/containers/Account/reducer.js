@@ -6,8 +6,11 @@
 
 import {
   ACCOUNT_CHANGE,
+  INFO_CHANGE,
   FETCH_PROFILE,
+  FETCH_INFO,
   CLEAR_ACCOUNT,
+  CLEAR_INFO,
   SET_PROFILE_LOADING
 } from './constants';
 
@@ -15,6 +18,16 @@ const initialState = {
   user: {
     firstName: '',
     lastName: ''
+  },
+  info: {
+    name: '',
+    address: '',
+    phoneNumber: '',
+    email: '',
+    icon: '',
+    shopeeUrl: '',
+    lazadaUrl: '',
+    tikiUrl: ''
   },
   isLoading: false
 };
@@ -29,11 +42,27 @@ const accountReducer = (state = initialState, action) => {
           ...action.payload
         }
       };
+    case INFO_CHANGE:
+      return {
+        ...state,
+        info: {
+          ...state.info,
+          ...action.payload
+        }
+      };
     case FETCH_PROFILE:
       return {
         ...state,
         user: {
           ...state.user,
+          ...action.payload
+        }
+      };
+    case FETCH_INFO:
+      return {
+        ...state,
+        info: {
+          ...state.info,
           ...action.payload
         }
       };
@@ -43,6 +72,17 @@ const accountReducer = (state = initialState, action) => {
         user: {
           firstName: '',
           lastName: ''
+        }
+      };
+    case CLEAR_INFO:
+      return {
+        ...state,
+        info: {
+          name: '',
+          address: '',
+          phoneNumber: '',
+          email: '',
+          icon: ''
         }
       };
     case SET_PROFILE_LOADING:

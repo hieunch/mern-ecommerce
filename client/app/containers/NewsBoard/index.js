@@ -20,6 +20,7 @@ import LoadingIndicator from '../../components/Common/LoadingIndicator';
 class NewsBoard extends React.PureComponent {
   componentDidMount() {
     // document.body.classList.add('shop-page');
+    document.title = "Tin Tức"
     this.props.filterNews();
   }
 

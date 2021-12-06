@@ -38,7 +38,8 @@ import Page404 from '../../components/Common/Page404';
 class Application extends React.PureComponent {
   componentDidMount() {
     const token = localStorage.getItem('token');
-
+    
+    this.props.fetchInfo();
     if (token) {
       this.props.fetchProfile();
     }
@@ -58,6 +59,8 @@ class Application extends React.PureComponent {
   }
 
   render() {
+    const { info } = this.props;
+    
     return (
       <div className='application'>
         {/* <Notification /> */}
@@ -69,22 +72,22 @@ class Application extends React.PureComponent {
                 <Route exact path='/' component={HomePage} />
                 <Route path='/shop' component={Shop} />
                 <Route path='/news' component={NewsBoard} />
-                <Route path='/sell' component={Sell} />
+                {/* <Route path='/sell' component={Sell} /> */}
                 <Route path='/contact' component={Contact} />
                 {/* <Route path='/brands' component={BrandsPage} /> */}
                 <Route path='/product/:slug' component={ProductPage} />
                 <Route path='/tintuc/:slug' component={NewsPage} />
                 <Route path='/login' component={Login} />
-                <Route path='/register' component={Signup} />
+                {/* <Route path='/register' component={Signup} /> */}
                 {/* <Route
                   path='/merchant-signup/:token'
                   component={MerchantSignup}
                 /> */}
-                <Route path='/forgot-password' component={ForgotPassword} />
-                <Route
+                {/* <Route path='/forgot-password' component={ForgotPassword} /> */}
+                {/* <Route
                   path='/reset-password/:token'
                   component={ResetPassword}
-                />
+                /> */}
                 <Route path='/auth/success' component={AuthSuccess} />
                 <Route
                   path='/dashboard'
@@ -96,7 +99,7 @@ class Application extends React.PureComponent {
             </div>
           </Container>
         </main>
-        <Footer />
+        <Footer info={info} />
       </div>
     );
   }
@@ -105,7 +108,8 @@ class Application extends React.PureComponent {
 const mapStateToProps = state => {
   return {
     authenticated: state.authentication.authenticated,
-    products: state.product.storeProducts
+    products: state.product.storeProducts,
+    info: state.account.info
   };
 };
 

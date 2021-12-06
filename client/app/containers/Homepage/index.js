@@ -22,12 +22,14 @@ import { responsiveMultiItemsCarousel } from '../../components/Common/ProductSli
 class Homepage extends React.PureComponent {
 
   componentDidMount() {
+    document.title = "Trang Chủ";
     const slug = this.props.match.params.slug;
     this.props.filterProducts(slug);
+    this.props.fetchRecentNews();
   }
 
   render() {
-    const { products, isLoading, authenticated } = this.props;
+    const { history, products, listNews, isLoading, authenticated } = this.props;
 
     const settings = {
       arrow: true,
@@ -130,24 +132,32 @@ class Homepage extends React.PureComponent {
                           </div>
                         </Link>
                       </div>
+                      <button className="detail-btn" onClick={() => history.push(`/product/${product.slug}`)} >
+                        Chi Tiết
+                      </button>
                     </div>
                   </div>
                 </div>
               ))}
             </ProductSlider>
-            {/* <Slider {...settings}>
-              {products.map((product, num) =>
+          </div>
+        </section>
+        {/* <section className='home-products'>
+        <h2 className='home-block-title'>TIN TỨC</h2>
+          <div className='home-container'>
+            <Slider {...settings}>
+              {listNews.map((news, num) =>
                 (
                   <div className='home-product-box' key={num}>
                     <div className='product-link'>
-                      <Link to={`/product/${product.slug}`}>
+                      <Link to={`/news/${news.slug}`}>
                         <div className='product-image-container'>
                           <div className='product-image-box'>
                             <img
                               className='product-image'
                               src={`${
-                                product.imageUrl
-                                  ? product.imageUrl
+                                news.thumbnail
+                                  ? news.thumbnail
                                   : '/images/placeholder-image.png'
                               }`}
                             />
@@ -155,10 +165,9 @@ class Homepage extends React.PureComponent {
                         </div>
                         <div className='product-body'>
                           <div className='product-details p-3'>
-                            <h1 className='home-product-name'>{product.name}</h1>
-                            
-                            <p >
-                              <span>{product.price.toLocaleString('vi-VN', {style: 'currency',currency: 'VND'})}</span>
+                            <h1 className='product-title'>{news.title}</h1>
+                            <p className='item-desc'>
+                              {news.content}
                             </p>
                           </div>
                         </div> 
@@ -167,9 +176,9 @@ class Homepage extends React.PureComponent {
                   </div>
                 )
               )}
-            </Slider> */}
+            </Slider>
           </div>
-        </section>
+        </section> */}
       </div>
     );
   }
@@ -178,6 +187,7 @@ class Homepage extends React.PureComponent {
 const mapStateToProps = state => {
   return {
     products: state.product.storeProducts,
+    listNews: state.news.listNews,
     isLoading: state.product.isLoading,
     authenticated: state.authentication.authenticated
   };

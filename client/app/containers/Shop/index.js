@@ -23,6 +23,7 @@ import SelectOption from '../../components/Common/SelectOption';
 
 class Shop extends React.PureComponent {
   componentDidMount() {
+    document.title = "Danh Mục Sản Phẩm";
     document.body.classList.add('shop-page');
   }
 

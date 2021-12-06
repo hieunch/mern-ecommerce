@@ -51,6 +51,9 @@ const ProductList = props => {
                       <p className='by'>
                         <span>{product.price.toLocaleString('vi-VN', {style: 'currency',currency: 'VND'})}</span>
                       </p>
+                      <p className='item-desc'>
+                        {product.description}
+                      </p>
                     </div>
                   </div>
                   {/* <div className='d-flex flex-row justify-content-between align-items-center px-4 mb-2 item-footer'>

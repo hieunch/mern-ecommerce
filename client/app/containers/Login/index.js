@@ -18,6 +18,10 @@ import LoadingIndicator from '../../components/Common/LoadingIndicator';
 import SignupProvider from '../../components/Common/SignupProvider';
 
 class Login extends React.PureComponent {
+  componentDidMount() {
+    document.title = "Đăng Nhập";
+  }
+
   render() {
     const {
       authenticated,

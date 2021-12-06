@@ -21,7 +21,7 @@ import Page404 from '../../components/Common/Page404';
 
 class Dashboard extends React.PureComponent {
   componentDidMount() {
-    this.props.fetchProfile();
+    // this.props.fetchInfo();
   }
 
   render() {

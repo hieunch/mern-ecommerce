@@ -109,7 +109,7 @@ class Navigation extends React.PureComponent {
     const {
       history,
       authenticated,
-      user,
+      info,
       brands,
       signOut,
       isBrandOpen,
@@ -139,11 +139,11 @@ class Navigation extends React.PureComponent {
               </Col>
               <Col md='4' className='text-center d-none d-md-block'>
                 <i className='fa fa-phone' />
-                <span>+84 (0) 225 397 9952</span>
+                <span>{info.phoneNumber}</span>
               </Col>
               <Col md='4' className='text-center d-none d-md-block'>
                 <i className='fa fa-envelope-o' />
-                <span>paper@gmail.com</span>
+                <span>{info.email}</span>
               </Col>
               
             </Row>
@@ -168,7 +168,8 @@ class Navigation extends React.PureComponent {
                 /> */}
                 <Link to='/'>
                   {/* <i className="fa fa-home"></i> */}
-                  <h1 className='logo'>PAPER Store</h1>
+                  {/* <h1 className='logo'>{info.name}</h1> */}
+                  <img height='60' src='/images/logo.jpg'/>
                 </Link>
               </div>
             </Col>
@@ -362,7 +363,7 @@ const mapStateToProps = state => {
   return {
     // isBrandOpen: state.navigation.isBrandOpen,
     isIntroductionOpen: state.navigation.isIntroductionOpen,
-    // brands: state.brand.storeBrands,
+    info: state.account.info,
     authenticated: state.authentication.authenticated,
     user: state.account.user,
     searchValue: state.navigation.searchValue,

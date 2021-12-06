@@ -15,6 +15,10 @@ import Input from '../../components/Common/Input';
 import Button from '../../components/Common/Button';
 
 class Contact extends React.PureComponent {
+  componentDidMount() {
+    document.title = "Liên Hệ"
+  }
+
   render() {
     const {
       contactFormData,

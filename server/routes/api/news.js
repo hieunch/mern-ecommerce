@@ -25,7 +25,7 @@ router.get('/item/:slug', async (req, res) => {
     const slug = req.params.slug;
 
     const news = await News.findOne({ slug });
-    console.log(news);
+    // console.log(news);
 
     if (!news) {
       return res.status(404).json({
@@ -96,7 +96,7 @@ router.get('/list/select', auth, async (req, res) => {
 });
 
 function dataURLtoFile(dataString, filename) {
-  console.log(dataString.substring(0,50));
+  // console.log(dataString.substring(0,50));
   var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)/),
     response = {};
 
@@ -212,6 +212,32 @@ router.get(
 
       const query = [
         { $sort : { "created" : -1 }},
+      ];
+      
+      news = await News.aggregate(query);
+
+      res.status(200).json({
+        news
+      });
+    } catch (error) {
+      res.status(400).json({
+        error: 'Your request could not be processed. Please try again.'
+      });
+    }
+  }
+);
+
+router.get(
+  '/recent',
+  auth,
+  role.checkRole(role.ROLES.Admin),
+  async (req, res) => {
+    try {
+      let news = [];
+
+      const query = [
+        { $sort : { "created" : -1 }},
+        {$limit: 8}
       ];
       
       news = await News.aggregate(query);

@@ -36,12 +36,12 @@ const Admin = props => {
             <Switch>
               <Route exact path='/dashboard' component={Account} />
               <Route path='/dashboard/security' component={AccountSecurity} />
-              <Route path='/dashboard/address' component={Address} />
+              {/* <Route path='/dashboard/address' component={Address} /> */}
               <Route path='/dashboard/product' component={Product} />
               <Route path='/dashboard/news' component={News} />
               {/* <Route path='/dashboard/category' component={Category} /> */}
               {/* <Route path='/dashboard/brand' component={Brand} /> */}
-              <Route path='/dashboard/users' component={Users} />
+              {/* <Route path='/dashboard/users' component={Users} /> */}
               {/* <Route path='/dashboard/merchants' component={Merchant} /> */}
               {/* <Route path='/dashboard/review' component={Review} /> */}
               {/* <Route path='/dashboard/wishlist' component={Wishlist} /> */}

@@ -10,8 +10,11 @@ import serverUrl from '../../utils/constant';
 
 import {
   ACCOUNT_CHANGE,
+  INFO_CHANGE,
   FETCH_PROFILE,
+  FETCH_INFO,
   CLEAR_ACCOUNT,
+  CLEAR_INFO,
   SET_PROFILE_LOADING
 } from './constants';
 import handleError from '../../utils/error';
@@ -26,11 +29,22 @@ export const accountChange = (name, value) => {
   };
 };
 
+export const infoChange = (name, value) => {
+  let formData = {};
+  formData[name] = value;
+
+  return {
+    type: INFO_CHANGE,
+    payload: formData
+  };
+};
+
 export const clearAccount = () => {
   return {
     type: CLEAR_ACCOUNT
   };
 };
+
 
 export const setProfileLoading = value => {
   return {
@@ -46,6 +60,21 @@ export const fetchProfile = () => {
       const response = await axios.get(serverUrl + `/api/user`);
 
       dispatch({ type: FETCH_PROFILE, payload: response.data.user });
+    } catch (error) {
+      handleError(error, dispatch);
+    } finally {
+      dispatch(setProfileLoading(false));
+    }
+  };
+};
+
+export const fetchInfo = () => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch(setProfileLoading(true));
+      const response = await axios.get(serverUrl + `/api/info`);
+
+      dispatch({ type: FETCH_INFO, payload: response.data.info });
     } catch (error) {
       handleError(error, dispatch);
     } finally {
@@ -74,6 +103,34 @@ export const updateProfile = () => {
       dispatch(success(successfulOptions));
     } catch (error) {
       handleError(error, dispatch);
+    }
+  };
+};
+
+
+export const updateInfo = () => {
+  return async (dispatch, getState) => {
+    dispatch(setProfileLoading(true));
+    const info = getState().account.info;
+
+    try {
+      const response = await axios.put(`/api/info`, {
+        info
+      });
+
+      const successfulOptions = {
+        title: `${response.data.message}`,
+        position: 'tr',
+        autoDismiss: 1
+      };
+
+      // dispatch({ type: FETCH_INFO, payload: response.data.info });
+
+      dispatch(success(successfulOptions));
+    } catch (error) {
+      handleError(error, dispatch);
+    } finally {
+      dispatch(setProfileLoading(false));
     }
   };
 };

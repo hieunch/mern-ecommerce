@@ -14,19 +14,19 @@ import SubPage from '../../components/Manager/SubPage';
 
 class Account extends React.PureComponent {
   componentDidMount() {
-    // this.props.fetchProfile();
   }
 
   render() {
-    const { user, accountChange, updateProfile } = this.props;
+    const { isLoading, info, infoChange, updateInfo } = this.props;
 
     return (
       <div className='account'>
-        <SubPage title={'Account Details'} isMenuOpen={null}>
+        <SubPage title={'Thông tin cửa hàng'} isMenuOpen={null}>
           <AccountDetails
-            user={user}
-            accountChange={accountChange}
-            updateProfile={updateProfile}
+            isLoading={isLoading}
+            info={info}
+            infoChange={infoChange}
+            updateInfo={updateInfo}
           />
         </SubPage>
       </div>
@@ -36,7 +36,8 @@ class Account extends React.PureComponent {
 
 const mapStateToProps = state => {
   return {
-    user: state.account.user,
+    isLoading: state.account.isLoading,
+    info: state.account.info,
     resetFormData: state.resetPassword.resetFormData,
     formErrors: state.resetPassword.formErrors
   };

@@ -13,16 +13,19 @@ import Input from '../../Common/Input';
 import Button from '../../Common/Button';
 
 const AccountDetails = props => {
-  const { user, accountChange, updateProfile } = props;
+  const { isLoading, info, infoChange, updateInfo } = props;
 
   const handleSubmit = event => {
     event.preventDefault();
-    updateProfile();
+    updateInfo();
   };
 
   return (
     <div className='account-details'>
-      <div className='info'>
+      {isLoading ? (
+          <LoadingIndicator inline />
+        ) : (<>
+      {/* <div className='info'>
         <div className='desc'>
           <p className='one-line-ellipsis mr-3'>
             {user.provider === 'email' ? (
@@ -35,64 +38,101 @@ const AccountDetails = props => {
           </p>
           <UserRole user={user} />
         </div>
-      </div>
+      </div> */}
       <form onSubmit={handleSubmit}>
         <Row>
-          <Col xs='12' md='6'>
+          <Col xs='12' md='4'>
             <Input
               type={'text'}
-              label={'First Name'}
-              name={'firstName'}
-              placeholder={'Please Enter Your First Name'}
-              value={user.firstName ? user.firstName : ''}
+              label={'Tên cửa hàng'}
+              name={'name'}
+              placeholder={'Nhập tên'}
+              value={info.name ? info.name : ''}
               onInputChange={(name, value) => {
-                accountChange(name, value);
+                infoChange(name, value);
               }}
             />
           </Col>
-          <Col xs='12' md='6'>
+          <Col xs='12' md='12'>
             <Input
               type={'text'}
-              label={'Last Name'}
-              name={'lastName'}
-              placeholder={'Please Enter Your Last Name'}
-              value={user.lastName ? user.lastName : ''}
+              label={'Địa chỉ'}
+              name={'address'}
+              placeholder={'Nhập địa chỉ'}
+              value={info.address ? info.address : ''}
               onInputChange={(name, value) => {
-                accountChange(name, value);
+                infoChange(name, value);
               }}
             />
           </Col>
           {/* TODO: update email feature to be added instead form change */}
-          {/* <Col xs='12' md='6'>
+          <Col xs='12' md='6'>
             <Input
               type={'text'}
               label={'Email'}
               name={'email'}
-              placeholder={'Please Enter Your Email'}
-              value={user.email ? user.email : ''}
+              placeholder={'Nhập Email'}
+              value={info.email ? info.email : ''}
               onInputChange={(name, value) => {
-                accountChange(name, value);
+                infoChange(name, value);
               }}
             />
-          </Col> */}
+          </Col>
+          <Col xs='12' md='6'>
+            <Input
+              type={'text'}
+              label={'Số điện thoại'}
+              name={'phoneNumber'}
+              placeholder={'Nhập Số điện thoại'}
+              value={info.phoneNumber ? info.phoneNumber : ''}
+              onInputChange={(name, value) => {
+                infoChange(name, value);
+              }}
+            />
+          </Col>
           <Col xs='12' md='12'>
             <Input
               type={'text'}
-              label={'Phone Number'}
-              name={'phoneNumber'}
-              placeholder={'Please Enter Your Phone Number'}
-              value={user.phoneNumber ? user.phoneNumber : ''}
+              label={'Link Shopee'}
+              name={'shopeeUrl'}
+              placeholder={'Nhập link'}
+              value={info.shopeeUrl ? info.shopeeUrl : ''}
               onInputChange={(name, value) => {
-                accountChange(name, value);
+                infoChange(name, value);
+              }}
+            />
+          </Col>
+          <Col xs='12' md='12'>
+            <Input
+              type={'text'}
+              label={'Link Lazada'}
+              name={'lazadaUrl'}
+              placeholder={'Nhập link'}
+              value={info.lazadaUrl ? info.lazadaUrl : ''}
+              onInputChange={(name, value) => {
+                infoChange(name, value);
+              }}
+            />
+          </Col>
+          <Col xs='12' md='12'>
+            <Input
+              type={'text'}
+              label={'Link Tiki'}
+              name={'tikiUrl'}
+              placeholder={'Nhập link'}
+              value={info.tikiUrl ? info.tikiUrl : ''}
+              onInputChange={(name, value) => {
+                infoChange(name, value);
               }}
             />
           </Col>
         </Row>
         <hr />
         <div className='profile-actions'>
-          <Button type='submit' variant='secondary' text='Save changes' />
+          <Button type='submit' variant='secondary' text='Lưu thay đổi' />
         </div>
       </form>
+      </>)}
     </div>
   );
 };

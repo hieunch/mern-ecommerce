@@ -19,6 +19,7 @@
  
  class NewsPage extends React.PureComponent {
    componentDidMount() {
+    document.title = "Tin Tức";
      const slug = this.props.match.params.slug;
      this.props.fetchNewsListBySlug(slug);
     //  document.body.classList.add('product-page');

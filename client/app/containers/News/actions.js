@@ -71,6 +71,24 @@ export const fetchNewsList = () => {
   };
 };
 
+export const fetchRecentNews = () => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch({ type: SET_NEWS_LOADING, payload: true });
+      const response = await axios.get(serverUrl + `/api/news/recent`);
+
+      dispatch({
+        type: FETCH_NEWS_LIST,
+        payload: response.data.news
+      });
+    } catch (error) {
+      handleError(error, dispatch);
+    } finally {
+      dispatch({ type: SET_NEWS_LOADING, payload: false });
+    }
+  };
+};
+
 // fetch news api
 export const fetchNews = id => {
   return async (dispatch, getState) => {

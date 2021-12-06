@@ -20,6 +20,7 @@ import ShopingNavBar from '../../components/Store/ShopingNavBar';
 
 class ProductPage extends React.PureComponent {
   componentDidMount() {
+    document.title = "Chi Tiết Sản Phẩm";
     const slug = this.props.match.params.slug;
     this.props.fetchStoreProduct(slug);
     // this.props.fetchProductReviews(slug);
