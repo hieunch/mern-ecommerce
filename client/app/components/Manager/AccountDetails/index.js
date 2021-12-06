@@ -47,7 +47,7 @@ const AccountDetails = props => {
               label={'Tên cửa hàng'}
               name={'name'}
               placeholder={'Nhập tên'}
-              value={info.name ? info.name : ''}
+              value={info.name}// ? info.name : ''}
               onInputChange={(name, value) => {
                 infoChange(name, value);
               }}
@@ -59,7 +59,7 @@ const AccountDetails = props => {
               label={'Địa chỉ'}
               name={'address'}
               placeholder={'Nhập địa chỉ'}
-              value={info.address ? info.address : ''}
+              value={info.address}// ? info.address : ''}
               onInputChange={(name, value) => {
                 infoChange(name, value);
               }}
@@ -72,7 +72,7 @@ const AccountDetails = props => {
               label={'Email'}
               name={'email'}
               placeholder={'Nhập Email'}
-              value={info.email ? info.email : ''}
+              value={info.email}// ? info.email : ''}
               onInputChange={(name, value) => {
                 infoChange(name, value);
               }}
@@ -84,7 +84,7 @@ const AccountDetails = props => {
               label={'Số điện thoại'}
               name={'phoneNumber'}
               placeholder={'Nhập Số điện thoại'}
-              value={info.phoneNumber ? info.phoneNumber : ''}
+              value={info.phoneNumber}// ? info.phoneNumber : ''}
               onInputChange={(name, value) => {
                 infoChange(name, value);
               }}
@@ -96,7 +96,7 @@ const AccountDetails = props => {
               label={'Link Shopee'}
               name={'shopeeUrl'}
               placeholder={'Nhập link'}
-              value={info.shopeeUrl ? info.shopeeUrl : ''}
+              value={info.shopeeUrl}// ? info.shopeeUrl : ''}
               onInputChange={(name, value) => {
                 infoChange(name, value);
               }}
@@ -108,7 +108,7 @@ const AccountDetails = props => {
               label={'Link Lazada'}
               name={'lazadaUrl'}
               placeholder={'Nhập link'}
-              value={info.lazadaUrl ? info.lazadaUrl : ''}
+              value={info.lazadaUrl}// ? info.lazadaUrl : ''}
               onInputChange={(name, value) => {
                 infoChange(name, value);
               }}
@@ -120,7 +120,7 @@ const AccountDetails = props => {
               label={'Link Tiki'}
               name={'tikiUrl'}
               placeholder={'Nhập link'}
-              value={info.tikiUrl ? info.tikiUrl : ''}
+              value={info.tikiUrl}// ? info.tikiUrl : ''}
               onInputChange={(name, value) => {
                 infoChange(name, value);
               }}

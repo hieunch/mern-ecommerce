@@ -11,7 +11,8 @@ import {
   FETCH_INFO,
   CLEAR_ACCOUNT,
   CLEAR_INFO,
-  SET_PROFILE_LOADING
+  SET_PROFILE_LOADING,
+  FETCH_INFO_FORM_DATA
 } from './constants';
 
 const initialState = {
@@ -19,7 +20,8 @@ const initialState = {
     firstName: '',
     lastName: ''
   },
-  info: {
+  info: {},
+  infoFormData: {
     name: '',
     address: '',
     phoneNumber: '',
@@ -45,8 +47,8 @@ const accountReducer = (state = initialState, action) => {
     case INFO_CHANGE:
       return {
         ...state,
-        info: {
-          ...state.info,
+        infoFormData: {
+          ...state.infoFormData,
           ...action.payload
         }
       };
@@ -63,6 +65,14 @@ const accountReducer = (state = initialState, action) => {
         ...state,
         info: {
           ...state.info,
+          ...action.payload
+        }
+      };
+    case FETCH_INFO_FORM_DATA:
+      return {
+        ...state,
+        infoFormData: {
+          ...state.infoFormData,
           ...action.payload
         }
       };

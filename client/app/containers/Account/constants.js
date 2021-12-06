@@ -11,3 +11,4 @@ export const SET_PROFILE_LOADING = 'src/Account/SET_PROFILE_LOADING';
 export const FETCH_INFO = 'src/Account/FETCH_INFO';
 export const INFO_CHANGE = 'src/Account/INFO_CHANGE';
 export const CLEAR_INFO = 'src/Account/CLEAR_INFO';
+export const FETCH_INFO_FORM_DATA = 'src/Account/FETCH_INFO_FORM_DATA';

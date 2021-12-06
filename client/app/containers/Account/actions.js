@@ -13,6 +13,7 @@ import {
   INFO_CHANGE,
   FETCH_PROFILE,
   FETCH_INFO,
+  FETCH_INFO_FORM_DATA,
   CLEAR_ACCOUNT,
   CLEAR_INFO,
   SET_PROFILE_LOADING
@@ -83,6 +84,21 @@ export const fetchInfo = () => {
   };
 };
 
+export const fetchInfoFormData = () => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch(setProfileLoading(true));
+      const response = await axios.get(serverUrl + `/api/info`);
+
+      dispatch({ type: FETCH_INFO_FORM_DATA, payload: response.data.info });
+    } catch (error) {
+      handleError(error, dispatch);
+    } finally {
+      dispatch(setProfileLoading(false));
+    }
+  };
+};
+
 export const updateProfile = () => {
   return async (dispatch, getState) => {
     const profile = getState().account.user;
@@ -111,7 +127,7 @@ export const updateProfile = () => {
 export const updateInfo = () => {
   return async (dispatch, getState) => {
     dispatch(setProfileLoading(true));
-    const info = getState().account.info;
+    const info = getState().account.infoFormData;
 
     try {
       const response = await axios.put(`/api/info`, {
@@ -124,7 +140,7 @@ export const updateInfo = () => {
         autoDismiss: 1
       };
 
-      // dispatch({ type: FETCH_INFO, payload: response.data.info });
+      dispatch({ type: FETCH_INFO, payload: response.data.info });
 
       dispatch(success(successfulOptions));
     } catch (error) {
